@@ -1,0 +1,19 @@
+[
+	{
+		"id": "1",
+		"name": "Head First Java",
+		"author": "Kathy Sierra",
+		"pages": "688",
+		"year": "",
+		"preview": "A Brain-Friendly Guide",
+		"publication" : "2016-01-01"
+	},
+	{
+		"id": "2",
+		"name": "Java: A Beginner's Guide",
+		"author": "Herbert Schildt",
+		"pages": "728",
+		"year": "2014",
+		"publication" : "2014-10-12"
+	}
+]
