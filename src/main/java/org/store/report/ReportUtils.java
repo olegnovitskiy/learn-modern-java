@@ -1,14 +1,10 @@
 package org.store.report;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
 import org.store.util.DateUtil;
+
+import java.util.*;
 
 public class ReportUtils {
 	private final StoreAPI storeAPI;
@@ -20,9 +16,11 @@ public class ReportUtils {
 	public Map<Integer, List<Book>> getBooksByYear() {
 		List<Book> books = storeAPI.findBooks();
 		Map<Integer, List<Book>> map = new HashMap<>();
+
 		for(Book book : books) {
 			Date publish = book.getPublication();
-			if(publish != null) {
+
+			if(!Objects.isNull(publish)) {
 				int year = DateUtil.getYear(publish);
 				if(map.containsKey(year)) {
 					List<Book> items = map.get(year);

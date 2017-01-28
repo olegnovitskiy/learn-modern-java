@@ -14,6 +14,7 @@ public class Starter {
 		
 		System.out.println(storeAPI.findBooks());
 		System.out.println(storeAPI.findBooks("Java", "", 2005, 0, 0));
+
 		Book book = api.buyBook(1);
 		System.out.println(book);
 	}

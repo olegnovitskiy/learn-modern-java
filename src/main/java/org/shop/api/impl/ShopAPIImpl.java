@@ -4,6 +4,8 @@ import org.shop.api.ShopAPI;
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
 
+import java.util.Objects;
+
 public class ShopAPIImpl implements ShopAPI {
 	private final StoreAPI storeAPI;
 	
@@ -14,9 +16,11 @@ public class ShopAPIImpl implements ShopAPI {
 	@Override
 	public Book buyBook(int bookId) {
 		Book book = storeAPI.findBookById(bookId);
-		if(book == null) {
+
+		if (Objects.isNull(book)) {
 			throw new RuntimeException("No book present");
 		}
+
 		storeAPI.takeBook(book);
 		return book;
 		
