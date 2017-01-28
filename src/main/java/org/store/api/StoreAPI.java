@@ -1,7 +1,9 @@
 package org.store.api;
 
-import java.util.List;
 import org.shop.model.Book;
+
+import java.util.List;
+import java.util.Optional;
 
 public interface StoreAPI {
 	List<Book> findBooks(String name, String author, int year, int pages, int publishYear);
@@ -10,6 +12,6 @@ public interface StoreAPI {
 	
 	void takeBook(Book book);
 	
-	Book findBookById(int id);
+	Optional<Book> findBookById(int id);
 
 }

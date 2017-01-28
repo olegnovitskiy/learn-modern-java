@@ -9,8 +9,9 @@ import org.store.api.StoreAPI;
 import org.store.api.book.BookReaderCsv;
 import org.store.util.DateUtil;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 public class StoreAPIImplTest {
     private ShopAPI api;
@@ -26,15 +27,15 @@ public class StoreAPIImplTest {
     public void findBookWithId1() throws Exception {
         Book expected = new Book(1, "Head First Java", 688, "Kathy Sierra", "N/A", "A Brain-Friendly Guide", DateUtil.strToDate("2016-01-01"));
 
-        Book actual = storeAPI.findBookById(1);
+        Optional<Book> actual = storeAPI.findBookById(1);
 
-        assertEquals(expected, actual);
+        assertEquals(Optional.ofNullable(expected), actual);
     }
 
     @Test
     public void findNotExistBook() throws Exception {
-        Book actual = storeAPI.findBookById(-1);
+        Optional<Book> actual = storeAPI.findBookById(-1);
 
-        assertNull(actual);
+        assertEquals(Optional.empty(), actual);
     }
 }

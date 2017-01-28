@@ -10,6 +10,7 @@ import org.store.util.DateUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class StoreAPIImpl implements StoreAPI {
 	private List<Book> books;
@@ -48,13 +49,13 @@ public class StoreAPIImpl implements StoreAPI {
 	}
 
 	@Override
-	public Book findBookById(int id) {
+	public Optional<Book> findBookById(int id) {
         for (Book book : books) {
             if (book.getId() == id) {
-                return book;
+                return Optional.ofNullable(book);
             }
         }
-		return null;
+		return Optional.empty();
 	}
 
 	@Override
