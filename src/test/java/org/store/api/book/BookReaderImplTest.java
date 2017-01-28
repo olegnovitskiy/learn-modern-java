@@ -8,6 +8,7 @@ import org.store.util.DateUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 
@@ -25,7 +26,7 @@ public class BookReaderImplTest {
     public void readTwoBooksFromCsv() throws Exception {
         BookReader reader = new BookReaderCsv();
         String path = "input/books.csv";
-        List<Book> actualBooks = reader.read(path);
+        List<Book> actualBooks = reader.read(path).collect(Collectors.toList());
 
         assertEquals(expectedBooks, actualBooks);
     }
@@ -34,7 +35,7 @@ public class BookReaderImplTest {
     public void readTwoBooksFromJson() throws Exception {
         BookReader reader = new BookReaderJson();
         String path = "input/books.json";
-        List<Book> actualBooks = reader.read(path);
+        List<Book> actualBooks = reader.read(path).collect(Collectors.toList());
 
         assertEquals(expectedBooks, actualBooks);
 
@@ -43,7 +44,7 @@ public class BookReaderImplTest {
     @Test
     public void readAndGetEmptyList() throws Exception {
         BookReader reader = new BookReaderDummy();
-        List<Book> actual = reader.read("");
+        List<Book> actual = reader.read("").collect(Collectors.toList());
 
         assertEquals(Collections.emptyList(), actual);
     }

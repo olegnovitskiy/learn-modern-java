@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class StoreAPIImpl implements StoreAPI {
 	private List<Book> books;
 
 	public StoreAPIImpl(BookReader reader, String path) {
-        books = reader.read(path);
+        books = reader.read(path).collect(Collectors.toList());
 	}
 
 	@Override

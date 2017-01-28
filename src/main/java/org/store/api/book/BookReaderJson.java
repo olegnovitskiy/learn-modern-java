@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 /**
  * Created by olegnovitskiy on 1/28/17.
@@ -21,7 +22,7 @@ public class BookReaderJson implements BookReader {
     private static final Gson GSON = new Gson();
 
     @Override
-    public List<Book> read(String path) {
+    public Stream<Book> read(String path) {
         List<Book> books = new ArrayList<>();
 
         try (InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
@@ -55,6 +56,6 @@ public class BookReaderJson implements BookReader {
             e.printStackTrace();
         }
 
-        return books;
+        return books.stream();
     }
 }

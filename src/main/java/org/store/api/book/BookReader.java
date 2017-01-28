@@ -2,9 +2,9 @@ package org.store.api.book;
 
 import org.shop.model.Book;
 
-import java.util.List;
+import java.util.stream.Stream;
 
 @FunctionalInterface
 public interface BookReader {
-	List<Book> read(String path);
+	Stream<Book> read(String path);
 }

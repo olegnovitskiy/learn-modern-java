@@ -10,10 +10,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class BookReaderCsv implements BookReader {
     @Override
-    public List<Book> read(String path) {
+    public Stream<Book> read(String path) {
         List<Book> books = new ArrayList<>();
 
         String cvsSplitBy = ",";
@@ -48,6 +49,6 @@ public class BookReaderCsv implements BookReader {
         }
 
 
-        return books;
+        return books.stream();
     }
 }
