@@ -1,7 +1,9 @@
 package org.sample;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Implement methods count and convert, using Stream API
@@ -23,7 +25,7 @@ public class StreamSamples {
 	 * @return
 	 */
 	public static int count(List<List<Integer>> items) {
-		return 0;
+		return items.stream().mapToInt(Collection::size).sum();
 	}
 
 	/**
@@ -34,7 +36,7 @@ public class StreamSamples {
 	 * @return
 	 */
 	public static List<Integer> convert(List<List<Integer>> items) {
-		return null;
+		return items.stream().flatMap(Collection::stream).collect(Collectors.toList());
 	}
 
 }
