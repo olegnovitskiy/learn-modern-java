@@ -14,12 +14,8 @@ import java.util.Objects;
 public class StoreAPIImpl implements StoreAPI {
 	private List<Book> books;
 
-	public StoreAPIImpl(BookReader reader, String source, String path) {
-		if ("csv".equals(source)) {
-			books = reader.readCsv(path);
-		} else {
-			books = reader.readJson(path);
-		}
+	public StoreAPIImpl(BookReader reader, String path) {
+        books = reader.read(path);
 	}
 
 	@Override

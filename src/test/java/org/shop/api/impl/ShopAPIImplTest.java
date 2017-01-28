@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.shop.api.ShopAPI;
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
-import org.store.api.book.BookReaderImpl;
+import org.store.api.book.BookReaderCsv;
 import org.store.api.impl.StoreAPIImpl;
 import org.store.util.DateUtil;
 
@@ -16,7 +16,7 @@ public class ShopAPIImplTest {
 
     @Before
     public void init() {
-        StoreAPI storeAPI = new StoreAPIImpl(new BookReaderImpl(), "csv", "input/books.csv");
+        StoreAPI storeAPI = new StoreAPIImpl(new BookReaderCsv(), "input/books.csv");
         api = new ShopAPIImpl(storeAPI);
     }
 

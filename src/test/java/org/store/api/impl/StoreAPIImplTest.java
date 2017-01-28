@@ -6,7 +6,7 @@ import org.shop.api.ShopAPI;
 import org.shop.api.impl.ShopAPIImpl;
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
-import org.store.api.book.BookReaderImpl;
+import org.store.api.book.BookReaderCsv;
 import org.store.util.DateUtil;
 
 import static org.junit.Assert.assertEquals;
@@ -18,7 +18,7 @@ public class StoreAPIImplTest {
 
     @Before
     public void setUp() throws Exception {
-        storeAPI = new StoreAPIImpl(new BookReaderImpl(), "csv", "input/books.csv");
+        storeAPI = new StoreAPIImpl(new BookReaderCsv(),  "input/books.csv");
         api = new ShopAPIImpl(storeAPI);
     }
 

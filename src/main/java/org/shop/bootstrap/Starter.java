@@ -4,12 +4,12 @@ import org.shop.api.ShopAPI;
 import org.shop.api.impl.ShopAPIImpl;
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
-import org.store.api.book.BookReaderImpl;
+import org.store.api.book.BookReaderCsv;
 import org.store.api.impl.StoreAPIImpl;
 
 public class Starter {
 	public static void main(String[] args) {
-		StoreAPI storeAPI = new StoreAPIImpl(new BookReaderImpl(), "csv", "input/books.csv");
+		StoreAPI storeAPI = new StoreAPIImpl(new BookReaderCsv(), "input/books.csv");
 		ShopAPI api = new ShopAPIImpl(storeAPI);
 		
 		System.out.println(storeAPI.findBooks());
