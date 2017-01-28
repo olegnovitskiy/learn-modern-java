@@ -18,6 +18,18 @@ public class Book {
 	
 	private Date publication;
 
+	public Book() {}
+
+	public Book(int id, String name, int pages, String author, String year, String preview, Date publication) {
+		this.id = id;
+		this.name = name;
+		this.pages = pages;
+		this.author = author;
+		this.year = year;
+		this.preview = preview;
+		this.publication = publication;
+	}
+
 	public String getPreview() {
 		return preview;
 	}

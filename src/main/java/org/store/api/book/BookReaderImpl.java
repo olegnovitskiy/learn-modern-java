@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class BookReaderImpl implements BookReader {
 	private static final Gson GSON = new Gson();
@@ -76,13 +77,16 @@ public class BookReaderImpl implements BookReader {
                 book.setName(data.get("name"));
                 book.setPages(NumberUtils.toInt(data.get("pages")));
                 book.setAuthor(data.get("author"));
-                if (data.containsKey("year")) {
-                    book.setYear(data.get("year"));
-                } else {
+                book.setYear(data.get("year"));
+                if (book.getYear().isEmpty()) {
                     book.setYear("N/A");
                 }
-
-                book.setPreview(data.get("preview"));
+                if (!Objects.isNull(data.get("preview"))) {
+                    book.setPreview("");
+                }
+                else {
+                    book.setPreview(data.get("preview"));
+                }
                 book.setPublication(DateUtil.strToDate(data.get("publication")));
 
                 books.add(book);
