@@ -15,9 +15,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-/**
- * Created by olegnovitskiy on 1/28/17.
- */
 public class BookReaderJson implements BookReader {
     private static final Gson GSON = new Gson();
 
@@ -25,6 +22,7 @@ public class BookReaderJson implements BookReader {
     public Stream<Book> read(String path) {
         List<Book> books = new ArrayList<>();
 
+        // TODO Replace is&reader by NIO.2
         try (InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
              BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
 

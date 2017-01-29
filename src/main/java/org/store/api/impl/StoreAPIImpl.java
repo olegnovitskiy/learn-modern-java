@@ -51,12 +51,7 @@ public class StoreAPIImpl implements StoreAPI {
 
 	@Override
 	public Optional<Book> findBookById(int id) {
-        for (Book book : books) {
-            if (book.getId() == id) {
-                return Optional.ofNullable(book);
-            }
-        }
-		return Optional.empty();
+        return books.stream().filter(book -> book.getId() == id).findFirst();
 	}
 
 	@Override
