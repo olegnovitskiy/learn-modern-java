@@ -23,8 +23,7 @@ public class BookReaderCsv implements BookReader {
         try {
             List<String> lines = Files.readAllLines(Paths.get(getClass().getClassLoader().getResource(path).toURI()));
 
-            for (String line: lines
-                    ) {
+            for (String line: lines) {
                 idx++;
                 if (idx == 1) {
                     continue;

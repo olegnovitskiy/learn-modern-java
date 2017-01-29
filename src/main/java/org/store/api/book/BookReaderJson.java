@@ -28,7 +28,6 @@ public class BookReaderJson implements BookReader {
         try (InputStream is = this.getClass().getClassLoader().getResourceAsStream(path);
              BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
 
-
             List<?> items = GSON.fromJson(reader, List.class);
             for (int i = 0; i < items.size(); i++) {
                 Object item = items.get(i);
