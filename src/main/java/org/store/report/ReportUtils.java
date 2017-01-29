@@ -2,8 +2,8 @@ package org.store.report;
 
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
-import org.store.util.DateUtil;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class ReportUtils {
@@ -18,10 +18,10 @@ public class ReportUtils {
 		Map<Integer, List<Book>> map = new HashMap<>();
 
 		for(Book book : books) {
-			Date publish = book.getPublication();
+			LocalDate publish = book.getPublication();
 
 			if(!Objects.isNull(publish)) {
-				int year = DateUtil.getYear(publish);
+				int year = publish.getYear();
 				if(map.containsKey(year)) {
 					List<Book> items = map.get(year);
 					items.add(book);

@@ -3,12 +3,12 @@ package org.store.api.book;
 import com.google.gson.Gson;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.shop.model.Book;
-import org.store.util.DateUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +45,7 @@ public class BookReaderJson implements BookReader {
                 else {
                     book.setPreview(data.get("preview"));
                 }
-                book.setPublication(DateUtil.strToDate(data.get("publication")));
+                book.setPublication(LocalDate.parse(data.get("publication")));
 
                 books.add(book);
             }

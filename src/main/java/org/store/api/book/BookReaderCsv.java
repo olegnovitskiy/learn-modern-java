@@ -2,12 +2,12 @@ package org.store.api.book;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.shop.model.Book;
-import org.store.util.DateUtil;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -40,7 +40,7 @@ public class BookReaderCsv implements BookReader {
                     book.setYear("N/A");
                 }
                 book.setPreview(tokens[5]);
-                book.setPublication(DateUtil.strToDate(tokens[6]));
+                book.setPublication(LocalDate.parse(tokens[6]));
                 books.add(book);
             }
         } catch (IOException | URISyntaxException e) {

@@ -5,7 +5,6 @@ import org.apache.commons.lang3.math.NumberUtils;
 import org.shop.model.Book;
 import org.store.api.StoreAPI;
 import org.store.api.book.BookReader;
-import org.store.util.DateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,7 @@ public class StoreAPIImpl implements StoreAPI {
 			if (pages != 0 && pages != book.getPages()) {
 				continue;
 			}
-			if (publishYear != 0 && publishYear != DateUtil.getYear(book.getPublication())) {
+			if (publishYear != 0 && publishYear != book.getPublication().getYear()) {
 				continue;
 			}
 

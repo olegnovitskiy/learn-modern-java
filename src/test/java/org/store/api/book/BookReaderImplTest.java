@@ -3,8 +3,8 @@ package org.store.api.book;
 import org.junit.Before;
 import org.junit.Test;
 import org.shop.model.Book;
-import org.store.util.DateUtil;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,8 +18,8 @@ public class BookReaderImplTest {
     @Before
     public void init() {
         expectedBooks = new ArrayList<>();
-        expectedBooks.add(new Book(1, "Head First Java", 688, "Kathy Sierra", "N/A", "A Brain-Friendly Guide", DateUtil.strToDate("2016-01-01")));
-        expectedBooks.add(new Book(2, "Java: A Beginner's Guide", 728, "Herbert Schildt", "2014", "", DateUtil.strToDate("2014-10-12")));
+        expectedBooks.add(new Book(1, "Head First Java", 688, "Kathy Sierra", "N/A", "A Brain-Friendly Guide", LocalDate.parse("2016-01-01")));
+        expectedBooks.add(new Book(2, "Java: A Beginner's Guide", 728, "Herbert Schildt", "2014", "", LocalDate.parse("2014-10-12")));
     }
 
     @Test

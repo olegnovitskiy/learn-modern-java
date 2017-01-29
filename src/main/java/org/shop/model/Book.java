@@ -1,6 +1,6 @@
 package org.shop.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Book {
@@ -16,11 +16,11 @@ public class Book {
 	
 	private String preview;
 	
-	private Date publication;
+	private LocalDate publication;
 
 	public Book() {}
 
-	public Book(int id, String name, int pages, String author, String year, String preview, Date publication) {
+	public Book(int id, String name, int pages, String author, String year, String preview, LocalDate publication) {
 		this.id = id;
 		this.name = name;
 		this.pages = pages;
@@ -78,11 +78,11 @@ public class Book {
 		this.year = year;
 	}
 
-	public Date getPublication() {
+	public LocalDate getPublication() {
 		return publication;
 	}
 
-	public void setPublication(Date publication) {
+	public void setPublication(LocalDate publication) {
 		this.publication = publication;
 	}
 
